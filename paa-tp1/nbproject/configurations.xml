@@ -38,56 +38,72 @@ made subject to such option by the copyright holder.
 
 Contributor(s):
 -->
-<configurationDescriptor version="47">
-    <logicalFolder displayName="root" name="root" projectFiles="true">
-        <logicalFolder displayName="Source Files" name="SourceFiles" projectFiles="true">
-            <itemPath>src/args.c</itemPath>
-        </logicalFolder>
-        <logicalFolder displayName="Header Files" name="HeaderFiles" projectFiles="true"/>
-        <logicalFolder displayName="Resource Files" name="ResourceFiles" projectFiles="true"/>
-        <logicalFolder displayName="Important Files" name="ExternalFiles" projectFiles="false">
-            <itemPath>Makefile</itemPath>
-        </logicalFolder>
+<configurationDescriptor version="100">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>Ordenacao.h</itemPath>
     </logicalFolder>
-    <projectmakefile>Makefile</projectmakefile>
-    <confs>
-        <conf name="Debug" type="1">
-            <toolsSet>
-                <compilerSet>default</compilerSet>
-            </toolsSet>
-            <compileType>
-                <linkerTool>
-                    <linkerLibItems/>
-                </linkerTool>
-            </compileType>
-            <item path="src/args.c">
-                <itemTool>0</itemTool>
-            </item>
-        </conf>
-        <conf name="Release" type="1">
-            <toolsSet>
-                <compilerSet>default</compilerSet>
-            </toolsSet>
-            <compileType>
-                <cCompilerTool>
-                    <developmentMode>5</developmentMode>
-                </cCompilerTool>
-                <ccCompilerTool>
-                    <developmentMode>5</developmentMode>
-                </ccCompilerTool>
-                <fortranCompilerTool>
-                    <developmentMode>5</developmentMode>
-                </fortranCompilerTool>
-                <asmTool>
-                    <developmentMode>5</developmentMode>
-                </asmTool>
-                <linkerTool>
-                    <linkerLibItems/>
-                </linkerTool>
-            </compileType>
-            <item path="src/args.c">
-                <itemTool>0</itemTool>
-            </item>
-        </conf>
-    </confs>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>Ordenacao.c</itemPath>
+      <itemPath>main.c</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+      </compileType>
+      <item path="Ordenacao.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="Ordenacao.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.c" ex="false" tool="0" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+      </compileType>
+      <item path="Ordenacao.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="Ordenacao.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.c" ex="false" tool="0" flavor2="0">
+      </item>
+    </conf>
+  </confs>
 </configurationDescriptor>
