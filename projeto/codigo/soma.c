@@ -37,21 +37,14 @@ void buscaBinaria(int *vetor, int numero, int tam)
     int indiceI = 0, indiceF = tam, media;
     int indTermo1 = -1, indTermo2 = -1;
 
-    while (indiceI != indiceF)
+    while ((indiceF - indiceI) != 1)
     {
         //imprimeVetor(vetor, indiceI, indiceF);
         media = (indiceI + indiceF) / 2;
-        if (media == 0 || media == tam - 1 || (indiceI == indiceF - 1))
-            break;
-
         if (numero < (vetor[media - 1] + vetor[media]))
-        {
             indiceF = media;
-        }
         else if (numero > (vetor[media - 1] + vetor[media]))
-        {
             indiceI = media;
-        }
         else if (numero == (vetor[media - 1] + vetor[media]))
         {
             indTermo1 = media - 1;
