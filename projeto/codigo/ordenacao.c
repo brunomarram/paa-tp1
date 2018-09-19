@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 
-#include "Ordenacao.h"
+#include "ordenacao.h"
 
-void bubbleSort(int *vetor){
+void bubbleSort(int *vetor, int tam){
     int temp;
-    for(int i=0;i<N;i++){
-        for(int j=0;j<N;j++){
+    for(int i=0;i<tam;i++){
+        for(int j=0;j<tam;j++){
             if(vetor[i] < vetor[j]){
                 temp = vetor[i];
                 vetor[i] = vetor[j];
@@ -41,8 +41,8 @@ void shellSort(int *vet) {
 }
 
 // https://pt.wikipedia.org/wiki/Heapsort
-void heapSort(int *vetor) {
-   int n = N;
+void heapSort(int *vetor, int tam) {
+   int n = tam;
    int i = n / 2, pai, filho, t;
    while(1) {
       if (i > 0) {

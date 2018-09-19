@@ -1,9 +1,9 @@
-#include "Soma.h"
+#include "soma.h"
 
-void metodo1(int *vetor, int numero){
+void metodo1(int *vetor, int numero, int tam){
     int fixI = -1, fixJ = -1;
-    for(int i=0;i<N;i++){
-        for(int j=i+1;j<N;j++){
+    for(int i=0;i<tam;i++){
+        for(int j=i+1;j<tam;j++){
             if(vetor[i] + vetor[j] == numero){
                 fixI = i;
                 fixJ = j;
@@ -20,16 +20,16 @@ void metodo1(int *vetor, int numero){
         printf("\nNao foi encontrado um somatorio que de o numero solicitado\n");
 }
 
-void metodo2(int *vetor, int numero){
+void metodo2(int *vetor, int numero, int tam){
 
-    int indiceI = 0, indiceF = N, media;
+    int indiceI = 0, indiceF = tam, media;
     int indTermo1 = -1, indTermo2 = -1;
 
     while(indiceI != indiceF) {
 
         media = (indiceI+indiceF)/2;
         //printf("%d\n", media);
-        if(media==0 || media==N-1)
+        if(media==0 || media==tam-1)
             break;
 
         imprimeVetor(vetor, indiceI, indiceF);

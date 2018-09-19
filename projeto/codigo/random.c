@@ -1,4 +1,4 @@
-#include "Random.h"
+#include "random.h"
 
 void inicializaSrand() {
     srand((unsigned)time(NULL) );

@@ -1,7 +1,7 @@
 all:
-	gcc Ordenacao.h Ordenacao.c Random.h Random.c Soma.h Soma.c main.c -o exec
+	gcc ordenacao.h ordenacao.c random.h random.c soma.h soma.c menu.h menu.c -o exec
 production:
-	gcc Ordenacao.h Ordenacao.c Random.h Random.c Soma.h Soma.c main.c -o exec
+	gcc ordenacao.h ordenacao.c random.h random.c soma.h soma.c menu.h menu.c -o exec
 clean:
 	rm exec
 run:
