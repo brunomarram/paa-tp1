@@ -16,11 +16,11 @@ void pesquisaSequencial(int *vetor, int numero, int tam)
                 break;
             }
         }
-        if (fixI != -1 || fixJ != -1)
+        if (fixI != -1 && fixJ != -1)
             break;
     }
 
-    if (fixI != -1 || fixJ != -1)
+    if (fixI != -1 && fixJ != -1)
         printf("\n\n%d + %d = %d\n\n", vetor[fixI], vetor[fixJ], numero);
     else
         printf("\nNao foi encontrado um somatorio que de o numero solicitado\n");
@@ -28,6 +28,7 @@ void pesquisaSequencial(int *vetor, int numero, int tam)
     clock_t final = clock() - begin;
     double total = ((double)final) / CLOCKS_PER_SEC;
     printf("Tempo de pesquisa sequencial: %lf\n", total);
+    registraTempo("log.txt", total, "Tempo de pesquisa sequencial", numero);
 }
 
 void buscaBinaria(int *vetor, int numero, int tam)
@@ -61,6 +62,7 @@ void buscaBinaria(int *vetor, int numero, int tam)
     clock_t final = clock() - begin;
     double total = ((double)final) / CLOCKS_PER_SEC;
     printf("Tempo de busca binaria: %lf\n", total);
+    registraTempo("log.txt", total, "Tempo de busca binaria", numero);
 }
 
 int verificaSoma(int *vetor, int indiceI, int indiceF, int *indTermo1, int *indTermo2, int numero)

@@ -27,6 +27,7 @@ void bubbleSort(int *vetor, int tam)
     clock_t final = clock() - begin;
     double total = ((double)final) / CLOCKS_PER_SEC;
     printf("Tempo de ordenacao: %lf\n", total);
+    registraTempo("log.txt", total, "Tempo de ordenacao usando BubbleSort", -1);
 }
 
 // https://pt.wikipedia.org/wiki/Heapsort
@@ -74,4 +75,5 @@ void heapSort(int *vetor, int tam)
     clock_t final = clock() - begin;
     double total = ((double)final) / CLOCKS_PER_SEC;
     printf("Tempo de ordenacao: %lf\n", total);
+    registraTempo("log.txt", total, "Tempo de ordenacao usando HeapSort", -1);
 }

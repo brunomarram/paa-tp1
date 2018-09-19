@@ -1,4 +1,6 @@
 #include "random.h"
+#include "arquivo.h"
+
 #define N 100
 
 //void definirTamanhoVetor(int tam);

@@ -1,4 +1,5 @@
 #include "menu.h"
+#include "arquivo.h"
 
 int *definirTamanhoVetor(int tam)
 {
@@ -9,9 +10,11 @@ int *definirTamanhoVetor(int tam)
 
 void resetaVetor(int *vetor, int tam)
 {
-    //gerar números aleatórios entre 0 e 100
+
     for (int i = 0; i < tam; i++)
         vetor[i] = geraRandom(tam);
+
+    registraArquivo("log.txt", vetor, tam);
 }
 
 void imprimeVetorMain(int *vetor, int tam)
@@ -23,7 +26,7 @@ void imprimeVetorMain(int *vetor, int tam)
 
 void menuPrincipal()
 {
-
+    inicializaArquivo("log.txt");
     int opc, tam = 0, num, sortOpc;
     int *vetor = NULL;
 
@@ -64,7 +67,6 @@ void menuPrincipal()
             vetor = definirTamanhoVetor(tam);
             resetaVetor(vetor, tam);
             printf("Um vetor com valores aleatórios será gerado\n");
-            imprimeVetorMain(vetor, tam);
             printf("\nPressione enter para continuar...");
             getchar();
             break;

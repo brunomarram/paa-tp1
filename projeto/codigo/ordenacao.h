@@ -1,4 +1,5 @@
 #include "soma.h"
+#include "arquivo.h"
 
 void bubbleSort(int *vetor, int tam);
 
