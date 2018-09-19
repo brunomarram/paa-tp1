@@ -1,44 +1,54 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+// /*
+//  * To change this license header, choose License Headers in Project Properties.
+//  * To change this template file, choose Tools | Templates
+//  * and open the template in the editor.
+//  */
 
-/* 
- * File:   main.c
- * Author: Bruno Marra
- *
- * Created on 11 de Setembro de 2018, 10:26
- */
+// /*
+//  * File:   main.c
+//  * Author: Bruno Marra
+//  *
+//  * Created on 11 de Setembro de 2018, 10:26
+//  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "Ordenacao.h"
-#include "Random.h"
-#include "Soma.h"
+// #include "menu.h"
 
-void resetVetor(int *vetor){
-    //gerar números aleatórios entre 0 e 100
-    for(int i=0;i<N;i++)
-        vetor[i] = randomGenerate(0, 100);
-}
+// void resetaVetorMain(int *vetor)
+// {
+//     //gerar números aleatórios entre 0 e 100
+//     for (int i = 0; i < N; i++)
+//         vetor[i] = geraRandom(N);
+// }
 
-void imprimeVetor(int *vetor){
-    for(int i=0;i<N;i++)
-        printf("%d\n", vetor[i]);
-}
+// void imprimeVetorMain(int *vetor)
+// {
+//     for (int i = 0; i < N; i++)
+//         printf("%d ", vetor[i]);
+// }
 
-int main(int argc, char** argv) {
-    int vetor[N], numero = 199;
-    randomSeed();
+// int main(int argc, char **argv)
+// {
+//     system("clear");
+//     int vetor[N], numero;
+//     inicializaSrand();
+//     resetaVetorMain(vetor);
+//     printf("Vetor gerado: \n");
+//     imprimeVetorMain(vetor);
+//     printf("\n");
 
-    while(1){
-        resetVetor(vetor);
-        printf("Digite um numero para checar se existe soma valida: ");
-        scanf("%d", &numero);
-        metodo1(vetor, numero);
-    }
+//     do
+//     {
+//         printf("\nDigite um numero para checar se existe soma valida: ");
+//         scanf("%d", &numero);
+//         if (numero != -1)
+//         {
+//             heapSort(vetor);
+//             printf("Vetor ordenado: \n");
+//             imprimeVetorMain(vetor);
+//             pesquisaSequencial(vetor, numero);
+//             buscaBinaria(vetor, numero);
+//         }
+//     } while (numero != -1);
 
-    return 0;
-}
-
+//     return 0;
+// }

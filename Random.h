@@ -1,5 +1,6 @@
-#include <sys/time.h>
 #include <time.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-void randomSeed();
-int randomGenerate(int min, int limit);
+void inicializaSrand();
+int geraRandom(int limite);
