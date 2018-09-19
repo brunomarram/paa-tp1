@@ -15,9 +15,9 @@ void metodo1(int *vetor, int numero){
     }
 
     if(fixI != -1 || fixJ != -1)
-        printf("%d + %d = %d\n", vetor[fixI], vetor[fixJ], numero);
+        printf("\n\n%d + %d = %d\n\n", vetor[fixI], vetor[fixJ], numero);
     else
-        printf("Nao foi encontrado um somatorio que de o numero solicitado\n");
+        printf("\nNao foi encontrado um somatorio que de o numero solicitado\n");
 }
 
 void metodo2(int *vetor, int numero){
@@ -54,9 +54,9 @@ void metodo2(int *vetor, int numero){
         }
     }
     if(indTermo1 == -1 && indTermo2 == -1)
-        printf("Soma não encontrada!\n");
+        printf("\nSoma não encontrada!\n");
     else
-        printf(">> %d + %d = %d\n", vetor[indTermo1], vetor[indTermo2], numero);
+        printf("\n>> %d + %d = %d\n\n", vetor[indTermo1], vetor[indTermo2], numero);
 
 }
 
@@ -86,16 +86,4 @@ void imprimeVetor(int *vetor, int indiceI, int indiceF){
     for(i=indiceI; i< indiceF; i++)
         printf("%d ", vetor[i]);
     printf("\n");
-}
-
-int main() {
-
-    int i;
-    int vetor[N];
-    for(i=0;i<N;i++)
-        vetor[i] = i+1;
-
-    metodo2(vetor, 3);
-
-    return 0;
 }

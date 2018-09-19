@@ -11,8 +11,6 @@
  * Created on 11 de Setembro de 2018, 10:26
  */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "Ordenacao.h"
 #include "Random.h"
 #include "Soma.h"
@@ -20,24 +18,34 @@
 void resetVetor(int *vetor){
     //gerar números aleatórios entre 0 e 100
     for(int i=0;i<N;i++)
-        vetor[i] = randomGenerate(0, 100);
+        vetor[i] = geraRandom(N);
 }
 
-void imprimeVetor(int *vetor){
+void imprimeVetorMain(int *vetor){
     for(int i=0;i<N;i++)
-        printf("%d\n", vetor[i]);
+        printf("%d ", vetor[i]);
 }
 
 int main(int argc, char** argv) {
+    system("clear");
     int vetor[N], numero = 199;
-    randomSeed();
+    inicializaSrand();
+    resetVetor(vetor);
+    printf("Vetor gerado: \n");
+    imprimeVetorMain(vetor);
+    printf("\n");
 
-    while(1){
+    while(numero!=-1){
         resetVetor(vetor);
-        printf("Digite um numero para checar se existe soma valida: ");
+        printf("\nDigite um numero para checar se existe soma valida: ");
         scanf("%d", &numero);
-        metodo1(vetor, numero);
-        metodo2(vetor, numero);
+        if(numero!=-1) {
+            heapSort(vetor);
+            printf("Vetor ordenado: \n");
+            imprimeVetorMain(vetor);
+            metodo1(vetor, numero);
+            metodo2(vetor, numero);
+    }
     }
 
     return 0;
