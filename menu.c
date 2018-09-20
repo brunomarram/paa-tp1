@@ -96,7 +96,7 @@ void menuPrincipal()
                 bubbleSort(vetor, tam);
             else if (sortOpc == 2)
                 heapSort(vetor, tam);
-            buscaBinaria(vetor, num, tam);
+            verificaSomaBinaria(vetor, num, tam);
             printf("\nPressione enter para continuar...");
             getchar();
             break;

@@ -31,63 +31,51 @@ void pesquisaSequencial(int *vetor, int numero, int tam)
     registraTempo("log.txt", total, "Tempo de pesquisa sequencial", numero);
 }
 
-void buscaBinaria(int *vetor, int numero, int tam)
-{
+void verificaSomaBinaria(int *vetor, int numero, int tam){
+    int i, indiceTermoEncontrado = -1;
     clock_t begin = clock();
 
-    int indiceI = 0, indiceF = tam, media;
-    int indTermo1 = -1, indTermo2 = -1;
-
-    while ((indiceF - indiceI) != 1)
-    {
-        //imprimeVetor(vetor, indiceI, indiceF);
-        media = (indiceI + indiceF) / 2;
-        if (numero < (vetor[media - 1] + vetor[media]))
-            indiceF = media;
-        else if (numero > (vetor[media - 1] + vetor[media]))
-            indiceI = media;
-        else if (numero == (vetor[media - 1] + vetor[media]))
-        {
-            indTermo1 = media - 1;
-            indTermo2 = media;
+    //imprimeVetor(vetor, 0, tam);
+    for(i=0;i<tam; i++){
+        indiceTermoEncontrado = buscaBinaria(vetor, numero-vetor[i], tam);
+        if(indiceTermoEncontrado == i)
+            indiceTermoEncontrado = -1;
+        if(numero < vetor[i]+vetor[i+1])
+            break;
+        if(indiceTermoEncontrado!=-1) {
+            printf("Soma encontrada: %d + %d = %d\n", vetor[i], vetor[indiceTermoEncontrado], numero);
             break;
         }
     }
-    verificaSoma(vetor, indiceI, indiceF, &indTermo1, &indTermo2, numero);
-    if (indTermo1 == -1 && indTermo2 == -1)
+
+    if (indiceTermoEncontrado == -1)
         printf("\nSoma não encontrada!\n");
-    else
-        printf("\n>> %d + %d = %d\n\n", vetor[indTermo1], vetor[indTermo2], numero);
 
     clock_t final = clock() - begin;
     double total = ((double)final) / CLOCKS_PER_SEC;
     printf("Tempo de busca binaria: %lf\n", total);
     registraTempo("log.txt", total, "Tempo de busca binaria", numero);
+
 }
 
-int verificaSoma(int *vetor, int indiceI, int indiceF, int *indTermo1, int *indTermo2, int numero)
+int buscaBinaria(int *vetor, int numero, int tam)
 {
-    int i, j;
-    //imprimeVetor(vetor, indiceI, indiceF);
-    if (indiceI == indiceF)
-        return 0;
+    int indiceI = 0, indiceF = tam, media;
 
-    for (i = indiceI; i < indiceF; i++)
-    {
-        for (j = i + 1; j < indiceF; j++)
-        {
-            if ((vetor[i] + vetor[j]) == numero)
-            {
-                *indTermo1 = i;
-                *indTermo2 = j;
-                break;
-            }
-        }
+    while ((indiceF - indiceI) != 1) {
+
+        media = (indiceI + indiceF) / 2;
+
+        if (numero < vetor[media])
+            indiceF = media;
+        else if (numero > vetor[media])
+            indiceI = media;
+        else if (numero == vetor[media])
+            return media;
+
     }
-    if (*indTermo1 != -1 && *indTermo2 != -1)
-        return 1;
-    else
-        return 0;
+
+    return -1;
 }
 
 void imprimeVetor(int *vetor, int indiceI, int indiceF)
