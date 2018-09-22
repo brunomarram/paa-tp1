@@ -5,6 +5,5 @@ void inicializaSrand() {
 }
 
 int geraRandom(int limite){
-    int numero = ( rand() % (limite));
-    return (numero == 0) ? 1 : numero;
+    return ((rand() % (limite)) + 1);
 }

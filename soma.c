@@ -1,6 +1,6 @@
 #include "soma.h"
 
-void pesquisaSequencial(int *vetor, int numero, int tam)
+void pesquisaSequencial(int *vetor, int numero, int tam, double *tempoMedio)
 {
     clock_t begin = clock();
 
@@ -21,17 +21,18 @@ void pesquisaSequencial(int *vetor, int numero, int tam)
     }
 
     if (fixI != -1 && fixJ != -1)
-        printf("\n\n%d + %d = %d\n\n", vetor[fixI], vetor[fixJ], numero);
+        printf("Soma encontrada: %d + %d = %d\n", vetor[fixI], vetor[fixJ], numero);
     else
-        printf("\nNao foi encontrado um somatorio que de o numero solicitado\n");
+        printf("Não foi encontrado um somatório que dê o número solicitado\n");
 
     clock_t final = clock() - begin;
     double total = ((double)final) / CLOCKS_PER_SEC;
-    printf("Tempo de pesquisa sequencial: %lf\n", total);
+    *tempoMedio += total;
+    // printf("Tempo de pesquisa sequencial: %lf\n", total);
     registraTempo("log.txt", total, "Tempo de pesquisa sequencial", numero);
 }
 
-void verificaSomaBinaria(int *vetor, int numero, int tam){
+void verificaSomaBinaria(int *vetor, int numero, int tam, double *tempoMedio){
     int i, indiceTermoEncontrado = -1;
     clock_t begin = clock();
 
@@ -49,11 +50,12 @@ void verificaSomaBinaria(int *vetor, int numero, int tam){
     }
 
     if (indiceTermoEncontrado == -1)
-        printf("\nSoma não encontrada!\n");
+        printf("Não foi encontrado um somatório que dê o número solicitado\n");
 
     clock_t final = clock() - begin;
     double total = ((double)final) / CLOCKS_PER_SEC;
-    printf("Tempo de busca binaria: %lf\n", total);
+    *tempoMedio += total;
+    // printf("Tempo de busca binaria: %lf\n", total);
     registraTempo("log.txt", total, "Tempo de busca binaria", numero);
 
 }

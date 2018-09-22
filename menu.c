@@ -1,5 +1,6 @@
 #include "menu.h"
 #include "arquivo.h"
+#define OPERACOES_MEDIA 1
 
 int *definirTamanhoVetor(int tam)
 {
@@ -10,11 +11,12 @@ int *definirTamanhoVetor(int tam)
 
 void resetaVetor(int *vetor, int tam)
 {
-
+    char endereco[16];
+    strcpy(endereco, "log.txt");
     for (int i = 0; i < tam; i++)
         vetor[i] = geraRandom(tam);
 
-    registraArquivo("log.txt", vetor, tam);
+    registraArquivo(endereco, vetor, tam);
 }
 
 void imprimeVetorMain(int *vetor, int tam)
@@ -26,14 +28,20 @@ void imprimeVetorMain(int *vetor, int tam)
 
 void menuPrincipal()
 {
-    inicializaArquivo("log.txt");
-    int opc, tam = 0, num, sortOpc;
+    char endereco[16];
+    int opc, tam = 0, num, sortOpc, i;
+    double tempoMedio=0;
     int *vetor = NULL;
 
+    strcpy(endereco, "log.txt");
+    inicializaArquivo(endereco);
+
     system("clear");
-    free(vetor);
-    vetor = definirTamanhoVetor(TAM_INICIAL);
-    resetaVetor(vetor, TAM_INICIAL);
+    // free(vetor);
+    // vetor = definirTamanhoVetor(TAM_INICIAL);
+    // resetaVetor(vetor, TAM_INICIAL);
+    // imprimeVetorMain(vetor, TAM_INICIAL);
+    // getchar();
 
     while (1)
     {
@@ -71,17 +79,20 @@ void menuPrincipal()
             getchar();
             break;
         case 2:
-            printf("Digite o número que deseja verificar: ");
+            printf("\nDigite o número que deseja verificar: ");
             scanf("%d", &num);
             getchar();
-            pesquisaSequencial(vetor, num, tam);
-            printf("Ordenação concluída!\n");
+            tempoMedio = 0;
+            for(i=0;i<OPERACOES_MEDIA;i++)
+                pesquisaSequencial(vetor, num, tam, &tempoMedio);
+            // printf("%lf\n", tempoMedio/OPERACOES_MEDIA);
+            printf("Tempo de pesquisa sequencial: %lf\n", tempoMedio/OPERACOES_MEDIA);
             printf("\nPressione enter para continuar...");
             getchar();
             break;
         case 3:
             system("clear");
-            printf("Digite o número que deseja verificar: ");
+            printf("\nDigite o número que deseja verificar: ");
             scanf("%d", &num);
             getchar();
             do
@@ -96,7 +107,11 @@ void menuPrincipal()
                 bubbleSort(vetor, tam);
             else if (sortOpc == 2)
                 heapSort(vetor, tam);
-            verificaSomaBinaria(vetor, num, tam);
+            tempoMedio = 0;
+            for(i=0;i<OPERACOES_MEDIA;i++)
+                verificaSomaBinaria(vetor, num, tam, &tempoMedio);
+            // printf("%lf\n", tempoMedio/OPERACOES_MEDIA);
+            printf("Tempo de busca binaria: %lf\n", tempoMedio/OPERACOES_MEDIA);
             printf("\nPressione enter para continuar...");
             getchar();
             break;
@@ -122,19 +137,3 @@ int main()
 
     return 0;
 }
-
-// case 2:
-//     //imprimeVetorMain(vetor, tam);
-//     bubbleSort(vetor, tam);
-//     printf("Ordenação concluída!\n");
-//     imprimeVetorMain(vetor, tam);
-//     printf("\nPressione enter para continuar...");
-//     getchar();
-//     break;
-// case 3:
-//     heapSort(vetor, tam);
-//     printf("Ordenação concluída!\n");
-//     imprimeVetorMain(vetor, tam);
-//     printf("\nPressione enter para continuar...");
-//     getchar();
-//     break;
