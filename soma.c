@@ -1,7 +1,6 @@
 #include "soma.h"
 
-void pesquisaSequencial(int *vetor, int numero, int tam, double *tempoMedio)
-{
+void pesquisaSequencial(int *vetor, int numero, int tam, double *tempoMedio) {
     clock_t begin = clock();
 
     int fixI = -1, fixJ = -1;
@@ -60,8 +59,7 @@ void verificaSomaBinaria(int *vetor, int numero, int tam, double *tempoMedio){
 
 }
 
-int buscaBinaria(int *vetor, int numero, int tam)
-{
+int buscaBinaria(int *vetor, int numero, int tam) {
     int indiceI = 0, indiceF = tam, media;
 
     while ((indiceF - indiceI) != 1) {
@@ -80,8 +78,7 @@ int buscaBinaria(int *vetor, int numero, int tam)
     return -1;
 }
 
-void imprimeVetor(int *vetor, int indiceI, int indiceF)
-{
+void imprimeVetor(int *vetor, int indiceI, int indiceF) {
     int i;
     for (i = indiceI; i < indiceF; i++)
         printf("%d ", vetor[i]);
